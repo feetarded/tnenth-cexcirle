@@ -18,7 +18,7 @@ var min_hardcap : bool = true:
 			min_softcap_modifier = 0.0
 		notify_property_list_changed()
 
-var enable_max_cap : bool = false
+var enable_max_cap : bool = true
 var max_value : float = INF:
 	set(value):
 		max_value = value
@@ -77,13 +77,13 @@ func _get_property_list() -> Array[Dictionary]:
 				'type': TYPE_FLOAT,
 				'usage': PROPERTY_USAGE_DEFAULT,
 				'hint': PROPERTY_HINT_RANGE,
-				'hint_string': '0,1,0.01,or_greater'
+				'hint_string': '0,1,0.01,or_greater,or_less'
 			})
 	else:
 		min_value = 0.0
 		min_hardcap = true
 	
-	if enable_min_cap:
+	if enable_max_cap:
 		properties.append({
 			'name': 'Maximum Value',
 			'type': TYPE_NIL,
@@ -108,7 +108,7 @@ func _get_property_list() -> Array[Dictionary]:
 				'type': TYPE_FLOAT,
 				'usage': PROPERTY_USAGE_DEFAULT,
 				'hint': PROPERTY_HINT_RANGE,
-				'hint_string': '0,1,0.01,or_greater'
+				'hint_string': '0,1,0.01,or_greater,or_less'
 			})
 	else: 
 		max_value = INF

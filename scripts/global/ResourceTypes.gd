@@ -1,0 +1,5 @@
+enum GameResourceTypes {
+	HEALTH,
+	DEFENSE,
+	
+}
