@@ -1,6 +1,6 @@
 @tool
-extends GameResourceComponent
-class_name HealthResourceComponent
+extends GameResource
+class_name HealthResource
 
 func _current_value_setter(value : float) -> void:
 	current_value = value

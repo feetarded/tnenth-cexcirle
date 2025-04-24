@@ -1,6 +1,6 @@
 @tool
-extends Node
-class_name GameResourceComponent
+extends Resource
+class_name GameResource
 
 #dependencies - must redefine
 func _get_caps() -> Array[ValueCap]:
@@ -34,11 +34,11 @@ func current_value_setter(value : float) -> void:
 	var _capped_value = snappedf(apply_caps(value, _get_caps()), 0.1) #caps applied then passed to custom set
 	_current_value_setter(_capped_value)
 
-#checking for dependencies
+#add warnings if dependencies are not found
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings = []
 	if _get_game_resource_type() == ResourceTypes.GameResourceTypes.UNSET:
 		warnings.append('Method "_get_game_resource_type()" must be redefined in child classes in order for Entity to correctly recognise GameResourceComponent')
 	if _get_caps() == []:
-		warnings.append('Dependency Warning: _get_caps() is unset. Child classes must override _get_caps().')
+		warnings.append('Method "_get_caps()" must be redefined in child classes for values to function correctly')
 	return warnings

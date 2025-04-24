@@ -3,18 +3,11 @@ class_name Entity
 
 @export var resources : Array[GameResource]
 
-
-func fetch_resource_value(resource_name : String) -> float:
+func fetch_resource(resource_type : ResourceTypes.GameResourceTypes) -> GameResource:
 	for resource in resources:
-		if resource.get_class() == resource_name:
-			return resource.current_value
-	return 0.0
-
-func has_resource(resource_name : String) -> bool:
-	for resource in resources:
-		if resource.get_class() == resource_name:
-			return true
-	return false
+		if resource._get_game_resource_type() == resource_type:
+			return resource
+	return null
 
 func _ready() -> void:
 	pass # Replace with function body.
