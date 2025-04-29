@@ -1,7 +1,7 @@
 extends GameResource
 class_name DefenseResource
 
-func calculate_damage_reduction(defense : float, PEN_mult : float = 0, PEN_flat : float = 0) -> float:
+func _calculate_damage_reduction(defense : float, PEN_mult : float = 0, PEN_flat : float = 0) -> float:
 	var PEN_flat_defense : float = (defense - PEN_flat)
 	var PEN_mult_defense : float = PEN_flat_defense * clampf(1 - PEN_mult, 0, 1)
 	var PEN_defense : float
@@ -16,6 +16,6 @@ func calculate_damage_reduction(defense : float, PEN_mult : float = 0, PEN_flat 
 	return dmg_reduction / 100
 
 func apply_dmg_reduction(damage : float, PEN_mult : float, PEN_flat) -> float:
-	var dmg_reduction = calculate_damage_reduction(current_value, PEN_mult, PEN_flat)
+	var dmg_reduction = _calculate_damage_reduction(current_value, PEN_mult, PEN_flat)
 	return damage * (1 - dmg_reduction)
 	

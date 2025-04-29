@@ -3,7 +3,7 @@ class_name Entity
 
 @export var resources : Array[GameResource]
 
-func fetch_resource(resource_type : ResourceTypes.GameResourceTypes) -> GameResource:
+func fetch_resource(resource_type : ResourceTypes.Global) -> GameResource:
 	for resource in resources:
 		if resource._get_game_resource_type() == resource_type:
 			return resource

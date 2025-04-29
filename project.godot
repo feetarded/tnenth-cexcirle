@@ -16,4 +16,4 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ResourceTypes="*res://scripts/global/ResourceTypes.gd"
+ResourceTypes="*res://scripts/global/resource_types_enum.gd"
