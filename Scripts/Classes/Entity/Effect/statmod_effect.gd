@@ -13,7 +13,7 @@ class_name StatModEffect
 # - SHIELD absorbs as much of the incoming damage as its current value allows.
 # - DEFENSE reduces the remaining damage using `_calculate_damage_reduction`.
 # - HEALTH is reduced by the final damage value.
-func _apply(resources : Array[GameResource]):
+func _apply(resources : Array[Stat]):
 	var shield = _resource_from_type(resources, ResourceTypes.Global.SHIELD)
 	var defense = _resource_from_type(resources, ResourceTypes.Global.DEFENSE)
 	var health = _resource_from_type(resources, ResourceTypes.Global.HEALTH)

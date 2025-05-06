@@ -1,5 +1,8 @@
-extends GameResource
-class_name DefenseResource
+extends Stat
+class_name DefenseStat
+
+func id() -> REF_ID:
+	return REF_ID.DEFENSE
 
 func _calculate_damage_reduction(defense : float, PEN_mult : float = 0, PEN_flat : float = 0) -> float:
 	var PEN_flat_defense : float = (defense - PEN_flat)

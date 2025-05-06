@@ -15,10 +15,10 @@ class_name DamageEffect
 # - SHIELD absorbs as much of the incoming damage as its current value allows.
 # - DEFENSE reduces the remaining damage using `_calculate_damage_reduction`.
 # - HEALTH is reduced by the final damage value.
-func apply(resources : GameResourceContainer):
-	var shield = _resource_from_type(resources, ResourceTypes.Global.SHIELD)
-	var defense = _resource_from_type(resources, ResourceTypes.Global.DEFENSE)
-	var health = _resource_from_type(resources, ResourceTypes.Global.HEALTH)
+func apply(stat_array : StatContainer):
+	var shield = stat_array.fetch(REF_ID.SHIELD)
+	var defense =  stat_array.fetch(REF_ID.DEFENSE)
+	var health =  stat_array.fetch(REF_ID.HEALTH)
 	
 	var internal_damage : float = damage_value
 	
