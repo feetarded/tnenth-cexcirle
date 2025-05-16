@@ -1,3 +1,36 @@
-[gd_scene format=3 uid="uid://c6j46amoebc4y"]
+[gd_scene load_steps=6 format=3 uid="uid://c6j46amoebc4y"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/Classes/Weapon/weapon_class.gd" id="1_etvlx"]
+[ext_resource type="Script" path="res://scripts/Classes/Weapon/ActionComponent/combo_component.gd" id="2_821ky"]
+[ext_resource type="Script" path="res://scripts/Classes/Weapon/ActionComponent/skill_component.gd" id="3_fbbpr"]
+[ext_resource type="Script" path="res://scripts/Classes/Weapon/AttackComponent.gd" id="3_vekio"]
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_vyvr4"]
+
+[node name="Weapon" type="Node2D" node_paths=PackedStringArray("skill_component", "combo_component")]
+script = ExtResource("1_etvlx")
+skill_component = NodePath("SkillComponent")
+combo_component = NodePath("ComboComponent")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="ComboComponent" type="Node" parent="."]
+script = ExtResource("2_821ky")
+
+[node name="Attack" type="Node" parent="ComboComponent" node_paths=PackedStringArray("hitbox")]
+script = ExtResource("3_vekio")
+scalar = 30.0
+hitbox = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="ComboComponent/Attack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComboComponent/Attack/Area2D"]
+shape = SubResource("SeparationRayShape2D_vyvr4")
+
+[node name="Attack2" type="Node" parent="ComboComponent"]
+script = ExtResource("3_vekio")
+
+[node name="SkillComponent" type="Node" parent="."]
+script = ExtResource("3_fbbpr")

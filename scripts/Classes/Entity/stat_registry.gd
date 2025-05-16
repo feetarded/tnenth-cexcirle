@@ -4,6 +4,7 @@ enum ReferenceIDs {
 	UNSET,#default set for new resources, used for error detection
 	
 	HEALTH,
+	MAX_HEALTH,
 	DEFENSE,
 	SHIELD,
 	

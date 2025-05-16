@@ -15,10 +15,10 @@ class_name DamageEffect
 # - SHIELD absorbs as much of the incoming damage as its current value allows.
 # - DEFENSE reduces the remaining damage using `_calculate_damage_reduction`.
 # - HEALTH is reduced by the final damage value.
-func apply(stat_array : StatContainer):
-	var shield = stat_array.fetch(REF_ID.SHIELD)
-	var defense =  stat_array.fetch(REF_ID.DEFENSE)
-	var health =  stat_array.fetch(REF_ID.HEALTH)
+func apply(entity : Entity) -> void:
+	var shield = entity.fetch_stat(STAT_IDs.SHIELD)
+	var defense =  entity.fetch_stat(STAT_IDs.DEFENSE)
+	var health =  entity.fetch_stat(STAT_IDs.HEALTH)
 	
 	var internal_damage : float = damage_value
 	

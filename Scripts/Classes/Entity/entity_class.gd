@@ -1,17 +1,26 @@
 extends Node2D
 class_name Entity
 
-@export var default_resources : Array[Stat]
+@export var default_stats : Array[Stat]
 
-@onready var stat_array : StatContainer = StatContainer.new()
+var stat_array : Array[Stat]
 
-func _ready() -> void:
-	stat_array.entity = self
-	stat_array.append_array(default_resources)
+const STAT_IDs = FileRegistry.stat_registry
+
+func fetch_stat(ID : STAT_IDs):
+	for stat in stat_array:
+		if stat.id() == ID:
+			return stat
+	return null
+
+func add_stat(stat : Stat):
+	stat._assigned_entity = self
+	stat_array.append(stat)
 
 func apply_effect(effect : Effect) -> void:
-	effect._apply(stat_array)
+	effect.apply(self)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _ready() -> void:
+	for stat in stat_array:
+		stat.assigned_entity = self
+	stat_array.append_array(default_stats)
