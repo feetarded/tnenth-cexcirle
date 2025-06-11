@@ -21,7 +21,7 @@ func _current_value_setter(value : float) -> void:
 func _assigned_entity_setter(value : Entity) -> void:
 	_assigned_entity = value
 	
-	if not _assigned_entity.fetch_stat(STAT_ID.MAX_HEALTH):
+	if not _assigned_entity.fetch_stat(STAT_IDs.MAX_HEALTH):
 		var max_health_stat = MaxHealthStat.new()
 		max_health_stat.current_value = max_health
 		value.stat_array.append(max_health_stat)
