@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6j46amoebc4y"]
 
-[ext_resource type="Script" path="res://scripts/Classes/Weapon/weapon_class.gd" id="1_etvlx"]
-[ext_resource type="Script" path="res://scripts/Classes/Weapon/ActionComponent/combo_component.gd" id="2_821ky"]
-[ext_resource type="Script" path="res://scripts/Classes/Weapon/ActionComponent/skill_component.gd" id="3_fbbpr"]
-[ext_resource type="Script" path="res://scripts/Classes/Weapon/AttackComponent.gd" id="3_vekio"]
+[ext_resource type="Script" uid="uid://boa0m0msebvae" path="res://scripts/Classes/Weapon/weapon_class.gd" id="1_etvlx"]
+[ext_resource type="Script" uid="uid://dgptd2pvu1urt" path="res://scripts/Classes/Weapon/ActionComponent/combo_component.gd" id="2_821ky"]
+[ext_resource type="Script" uid="uid://srf8mgpen4m4" path="res://scripts/Classes/Weapon/ActionComponent/skill_component.gd" id="3_fbbpr"]
+[ext_resource type="Script" uid="uid://m4fv383cr1bg" path="res://scripts/Classes/Weapon/AttackComponent.gd" id="3_vekio"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_vyvr4"]
 

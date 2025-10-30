@@ -1,21 +1,24 @@
+@abstract
 extends Resource
 class_name Effect
 
-# Abstract base class for all Effects.
-# Effects apply changes to Stats
+# abstract base class for all Effects.
+# effects apply changes to Stats
 
-# Extend this class to create new types of Effects.
-# Do not instantiate Effect directly — only use subclasses.
-
-#Subclasses:
-# - Must override method `apply(stat_array : StatContainer) -> void` to define how the Effect modifies the entity.
+# extend this class to create new types of effects.
 
 #---------------------------------------------------------------------
 
 const STAT_IDs = FileRegistry.stat_registry
+# extending classes need this to identify and fetch stats from applied entities
 
-# Must be overridden in subclasses.
-# Should fetch required resources from Entity and modify them based on its own values
-# Each resource should be optional, and the effect should skip any that are not present on the Entity.
-func apply(entity : Entity) -> void:
-	pass
+@abstract func apply(entity : Entity) -> void
+# must be overridden in subclasses (obviously)
+# should fetch required resources the passed entity
+# # then modify them directly based on its own values
+# # should act like a pipeline, order of operations does matter sometimes
+
+# # # yes yes very coupled and distributed logic but how else am i meant to implement this
+
+# each resource that it modifies should be optional 
+# # the effect should skip any that are not present on the entity

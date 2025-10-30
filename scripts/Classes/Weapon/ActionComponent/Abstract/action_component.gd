@@ -1,6 +1,8 @@
-@tool
+@abstract
 extends Node
 class_name ActionComponent
+#WIP
+#for the weapon system
 
 @export var icon : Image
 @export var cost_type : CostType = CostType.cooldown
@@ -15,12 +17,9 @@ enum CostType {
 
 const STAT_IDs = FileRegistry.stat_registry
 
-func cost(entity : Entity):
-	pass
+@abstract func cost(entity : Entity)
 
-func trigger():
-	pass
-	return false
+@abstract func trigger()
 	
 
 	

@@ -1,8 +1,6 @@
-#a list of global resources that exist on all entities
-
+# enum used to ID Stats because you cant use get_class() on user defined classes
+# fuck you john godot
 enum ReferenceIDs {
-	UNSET,#default set for new resources, used for error detection
-	
 	HEALTH,
 	MAX_HEALTH,
 	DEFENSE,

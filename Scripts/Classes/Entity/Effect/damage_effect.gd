@@ -1,19 +1,19 @@
 extends Effect
 class_name DamageEffect
 
-# Handles most of the logic needed to apply damage to an entity
+# handles most of the logic needed to apply damage to an entity
 
-# Exported Properties:
-# - `damage_value` (float): The base amount of damage this effect attempts to apply.
-# - `PEN_flat` (float): Flat defense penetration. Subtracts a fixed amount from the target's DEFENSE value before applying any percentage-based reduction.
-# - `PEN_mult` (float): Percentage defense penetration. Scales the remaining DEFENSE after flat reduction to reduce its effectiveness. Ranges from 0 (no penetration) to 1 (full penetration).
-@export var damage_value : float
-@export var PEN_flat : float
-@export var PEN_mult : float
+@export var damage_value : float #the base amount of damage this effect attempts to apply.
+@export var PEN_flat : float # flat defense penetration. 
+# subtracts a fixed amount from the target's DEFENSE value before applying any percentage-based reduction
+@export var PEN_mult : float # percentage defense penetration. 
+# scales the remaining DEFENSE after flat reduction. 
+# ranges from 0 (no penetration) to 1 (full penetration)
+# # its clamped to those values if it ranges outside.
 
-# Damage Pipeline:
+# pipeline:
 # - SHIELD absorbs as much of the incoming damage as its current value allows.
-# - DEFENSE reduces the remaining damage using `_calculate_damage_reduction`.
+# - DEFENSE reduces the remaining damage using method apply_damage_reduction().
 # - HEALTH is reduced by the final damage value.
 func apply(entity : Entity) -> void:
 	var shield = entity.fetch_stat(STAT_IDs.SHIELD)
