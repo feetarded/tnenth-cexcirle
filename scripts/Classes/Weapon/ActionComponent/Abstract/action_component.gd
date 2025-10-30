@@ -5,7 +5,7 @@ class_name ActionComponent
 #for the weapon system
 
 @export var icon : Image
-@export var cost_type : CostType = CostType.cooldown
+@export var costs : Array[Cost]
 
 var cooldown : float = 0.0
 var stat_cost_value : float = 0.0
